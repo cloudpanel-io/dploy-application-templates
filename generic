@@ -1,4 +1,4 @@
-site:
+project:
   git_repository: '{git_repository}'
   deploy:
     directory: '{deploy_directory}'
