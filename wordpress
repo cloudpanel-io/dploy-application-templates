@@ -5,6 +5,7 @@ project:
     shared_directories:
       - 'wp-content/uploads'
     before_commands:
-      - ''
+      #- 'cd {release_directory} && touch test-file'
     after_commands:
+      #- 'bash clpctl varnish-cache:purge --purge=all' # PURGE Varnish Cache
       - 'sudo systemctl reload php8.2-fpm'
