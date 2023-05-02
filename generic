@@ -5,8 +5,7 @@ project:
     shared_directories:
       - 'var/log'
     before_commands:
-      #- 'cd {release_directory} && touch test-file'
+      #- 'cd {release_directory} && php8.2 clean-cache.php'
     after_commands:
-      #- 'cd {release_directory} && touch test-file'
       #- 'bash clpctl varnish-cache:purge --purge=all' # Varnish Cache Purge
       - 'sudo systemctl reload php8.2-fpm'
