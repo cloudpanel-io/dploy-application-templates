@@ -1,0 +1,14 @@
+project:
+  git_repository: '{git_repository}'
+  deploy:
+    directory: '{deploy_directory}'
+    shared_directories:
+      - 'var/log'
+      - 'pub/media'
+    before_commands:
+      - 'cd {release_directory} && php8.2 bin/magento setup:upgrade'
+      - 'cd {release_directory} && php8.2 bin/magento setup:di:compile'
+      - 'cd {release_directory} && php8.2 bin/magento setup:static-content:deploy'
+    after_commands:
+      - 'redis-cli -n 0 flushdb' # Flush Magento Cache
+      - 'sudo systemctl reload php8.2-fpm'
