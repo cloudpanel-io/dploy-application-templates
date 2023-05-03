@@ -1,0 +1,10 @@
+project:
+  git_repository: '{git_repository}'
+  deploy:
+    directory: '{deploy_directory}'
+    shared_directories:
+      - 'var'
+    before_commands:
+      - ''
+    after_commands:
+      - 'sudo systemctl reload php8.2-fpm'
