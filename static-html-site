@@ -3,8 +3,8 @@ project:
   deploy:
     directory: '{deploy_directory}'
     shared_directories:
-      - 'var'
-    before_commands: # Before symlink switch
       - ''
+    before_commands: # Before symlink switch
+      #- 'cd {release_directory} && php8.2 script.php'
     after_commands: # After symlink switch
       - 'sudo systemctl reload php8.2-fpm'
