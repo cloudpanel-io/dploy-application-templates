@@ -6,6 +6,7 @@ project:
       - 'var/log'
       - 'pub/media'
     before_commands: # Before symlink switch
+      #- 'cd {release_directory} && php8.2 /usr/local/bin/composer install --no-dev --optimize-autoloader'
       - 'cd {release_directory} && php8.2 bin/magento setup:upgrade'
       - 'cd {release_directory} && php8.2 bin/magento setup:di:compile'
       - 'cd {release_directory} && php8.2 bin/magento setup:static-content:deploy'
