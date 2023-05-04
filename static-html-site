@@ -4,7 +4,7 @@ project:
     directory: '{deploy_directory}'
     shared_directories:
       - 'var'
-    before_commands:
+    before_commands: # Before symlink switch
       - ''
-    after_commands:
+    after_commands: # After symlink switch
       - 'sudo systemctl reload php8.2-fpm'
