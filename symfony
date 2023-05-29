@@ -3,7 +3,7 @@ project:
   deploy:
     directory: '{deploy_directory}'
     shared_directories:
-      - 'var/log'
+      #- 'var/log'
     before_commands: # Before symlink switch
       #- 'cd {release_directory} && php8.2 /usr/local/bin/composer install --no-dev --optimize-autoloader'
     after_commands: # After symlink switch
