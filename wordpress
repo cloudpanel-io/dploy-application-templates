@@ -5,7 +5,7 @@ project:
     shared_directories:
       - 'wp-content/uploads'
     before_commands: # Before symlink switch
-      #- 'cd {release_directory} && php8.2 script.php'
+      #- 'cd {release_directory} && php8.0 script.php'
     after_commands: # After symlink switch
       #- 'bash clpctl varnish-cache:purge --purge=all' # Varnish Cache Purge
-      - 'sudo systemctl reload php8.1-fpm'
+      - 'sudo systemctl reload php8.0-fpm'
