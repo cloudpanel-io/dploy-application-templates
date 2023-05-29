@@ -10,6 +10,7 @@ project:
       - 'cd {release_directory} && php8.2 bin/magento setup:upgrade'
       - 'cd {release_directory} && php8.2 bin/magento setup:di:compile'
       - 'cd {release_directory} && php8.2 bin/magento setup:static-content:deploy'
+      - '/usr/bin/find {release_directory} -type d -exec chmod 0770 {} \; && /usr/bin/find {release_directory} -type f -exec chmod 660 {} \;'
     after_commands: # After symlink switch
       - 'redis-cli -n 0 flushdb' # Flush Redis Database 0
       - 'sudo systemctl reload php8.2-fpm'
