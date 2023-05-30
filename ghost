@@ -8,4 +8,5 @@ project:
       - 'find {release_directory} -type d -exec chmod 0770 {} \; && find {release_directory} -type f -exec chmod 660 {} \;'
     after_commands: # After symlink switch
       #- 'bash clpctl varnish-cache:purge --purge=all' # Varnish Cache Purge
+      - 'timeout 10 pkill -f nodejs &'
       - 'cd {release_directory} && ghost restart'
