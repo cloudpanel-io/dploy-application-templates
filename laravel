@@ -6,9 +6,9 @@ project:
       - 'storage/logs'
     before_commands: # Before symlink switch
       #- 'cd {release_directory} && php8.2 /usr/local/bin/composer install --no-dev --optimize-autoloader'
-      - 'cd {release_directory} && php8.2 artisan migrate --force'
+      #- 'cd {release_directory} && php8.2 artisan migrate --force'
       - 'cd {release_directory} && php8.2 artisan optimize'
-      #- 'cd {release_directory} && php8.2 artisan queue:restart'
+      - 'cd {release_directory} && php8.2 artisan queue:restart'
       - 'find {release_directory} -type d -exec chmod 0770 {} \; && find {release_directory} -type f -exec chmod 660 {} \;'
     after_commands: # After symlink switch
       #- 'bash clpctl varnish-cache:purge --purge=all' # Varnish Cache Purge
