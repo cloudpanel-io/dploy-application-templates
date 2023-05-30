@@ -1,0 +1,10 @@
+project:
+  git_repository: '{git_repository}'
+  deploy:
+    directory: '{deploy_directory}'
+    shared_directories:
+      #- ''
+    before_commands: # Before symlink switch
+      - 'find {release_directory} -type d -exec chmod 0770 {} \; && find {release_directory} -type f -exec chmod 660 {} \;'
+    after_commands: # After symlink switch
+      #- 'bash clpctl varnish-cache:purge --purge=all' # Varnish Cache Purge
